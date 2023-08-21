@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/index.css" />
+		<link rel="stylesheet" href="/normalixe.css" />
+		<title>Практическое задание 2</title>
+	</head>
+	<body>
+		<form novalidate name="formOne">
+			<div class="container">
+				<div class="name_field">
+					<label>Введите своё имя</label>
+					<input
+						type="text"
+						placeholder="Иван Иванов"
+						required
+						minlength="2"
+						maxlength="20"
+					/>
+				</div>
+				<div class="email_field">
+					<label>Введите свою эллектронную почту</label>
+					<input type="email" placeholder="arks.adress@mail.com" required />
+				</div>
+				<div class="age_field">
+					<label>Укажите свой возраст</label>
+					<input type="text" placeholder="27 лет" required />
+				</div>
+				<div class="gender_determination_field">
+					<label>Укажите свой пол</label>
+					<input type="radio" name="sex" value="male" id="male_radio" checked />
+					<label for="male_radio">Мужской</label>
+					<input type="radio" name="sex" value="female" id="female_radio" />
+					<label for="female_radio">Женский</label>
+				</div>
+				<div class="profession_field">
+					<label>Укажите свою профессию </label>
+					<select required placeholder="Инженер">
+						<option>Врач</option>
+						<option>Программист</option>
+						<option>Учитель</option>
+						<option>Дизайнер</option>
+						<option>Инженер</option>
+						<option>Продавец</option>
+						<option>Строитель</option>
+						<option>Повар</option>
+					</select>
+				</div>
+				<div class="password_field">
+					<input
+						class="input_password"
+						type="password"
+						placeholder="Пароль"
+						required
+						minlength="8"
+						pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+					/>
+					<input
+						type="password"
+						placeholder="Повторите пароль"
+						required
+						minlength="8"
+						pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+					/>
+				</div>
+				<div class="consent_field">
+					<label class="label_consent_field"
+						>Даю согласие на обработку персональных данных</label
+					>
+					<input type="checkbox" required />
+				</div>
+				<div class="button_" class="stage">
+					<button type="submit" class="btn" id="sending">Отправить</button>
+				</div>
+				<span class="error-message" id="age_error"></span>
+			</div>
+		</form>
+
+		<script src="index.js"></script>
+	</body>
+</html>
