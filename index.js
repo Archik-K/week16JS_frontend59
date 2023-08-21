@@ -1,6 +1,5 @@
 const form_ = document.forms.formOne;
 const button_sending = document.querySelector("#sending");
-
 const checkboxes = document.forms.formOne.querySelector("#checkbox");
 let errors = [];
 
@@ -31,9 +30,6 @@ function checkValidity(input) {
 			errors.validationMessage + min;
 		validity.style.border = "1px solid red";
 	}
-}
-
-function checkAll() {
 	const inputs = document.forms.formOne.querySelector("input");
 	for (let input of inputs) {
 		checkValidity(input);
@@ -55,10 +51,7 @@ function clearErrors() {
 		input.classList.remove("error");
 		input.style.border = "none";
 	});
-
 	checkboxes.classList.remove("error");
 }
 
-button_sending.addEventListener("click", function () {
-	console.log(input.value);
-});
+button_sending.addEventListener("click", function () {});
