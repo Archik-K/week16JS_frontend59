@@ -1,6 +1,7 @@
 const form_ = document.forms.formOne;
 const button_sending = document.querySelector("#sending");
 const checkboxes = document.forms.formOne.querySelector("#checkbox");
+const erorr = document.querySelector("#age_error");
 let errors = [];
 
 form_.addEventListener("submit", function (event) {
@@ -9,43 +10,45 @@ form_.addEventListener("submit", function (event) {
 
 function checkValidity(input) {
 	let validity = input.validity;
-	if (!validity.patternMismatch) {
+	if (validity.patternMismatch) {
 		validity.classList.add("error");
-		document.querySelector("#age_error").innerHTML = errors.validationMessage;
+		erorr.innerHTML = validity.validationMessage + "ошибка";
 		validity.style.border = "1px solid red";
 	}
 
-	if (!validity.rangeOverflow) {
+	if (validity.rangeOverflow) {
 		let max = input.max;
 		validity.classList.add("error");
-		document.querySelector("#age_error").innerHTML =
-			errors.validationMessage + max;
+		erorr.innerHTML = validity.validationMessage + max + "ошибка";
 		validity.style.border = "1px solid red";
 	}
 
-	if (!validity.rangeUnderflow) {
+	if (validity.rangeUnderflow) {
 		let min = input.min;
 		validity.classList.add("error");
-		document.querySelector("#age_error").innerHTML =
-			errors.validationMessage + min;
+		erorr.innerHTML = validity.validationMessage + min + "ошибка";
 		validity.style.border = "1px solid red";
-	}
-	const inputs = document.forms.formOne.querySelector("input");
-	for (let input of inputs) {
-		checkValidity(input);
 	}
 	if (checkboxes.checked) {
 		checkboxes.classList.remove("error");
-		document.querySelector("#age_error").textContent = "";
+		erorr.textContent = "";
 	} else {
 		checkboxes.classList.add("error");
-		errorMessage.textContent = "Чекбокс не выбран";
+		erorr.textContent = "Чекбокс не выбран";
+	}
+}
+
+function checkAll() {
+	//Получаем все инпуты
+	let inputs = document.querySelectorAll("input");
+	//Перебираем их и на каждый вызываем функцию валидации
+	for (let input of inputs) {
+		checkValidity(input);
 	}
 }
 
 function clearErrors() {
-	document.querySelector("#age_error").textContent = "";
-
+	erorr.textContent = "";
 	const inputs = document.forms.formOne.querySelectorAll("input");
 	inputs.forEach((input) => {
 		input.classList.remove("error");
@@ -54,4 +57,7 @@ function clearErrors() {
 	checkboxes.classList.remove("error");
 }
 
-button_sending.addEventListener("click", function () {});
+button_sending.addEventListener("click", function () {
+	clearErrors();
+	checkValidity();
+});
