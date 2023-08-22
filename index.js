@@ -5,10 +5,6 @@ const erorr = document.querySelector("#age_error");
 const input_form = document.forms.formOne.querySelectorAll("input");
 let errors = [];
 
-form_.addEventListener("submit", function (event) {
-	event.preventDefault();
-});
-
 function checkValidity(input) {
 	let validit = input.validity;
 	if (validit.patternMismatch) {
@@ -54,7 +50,8 @@ function clearErrors() {
 	checkboxes.classList.remove("error");
 }
 
-button_sending.addEventListener("click", function () {
+button_sending.addEventListener("click", function (event) {
+	event.preventDefault();
 	checkAll();
 	clearErrors();
 	checkValidity(input);
