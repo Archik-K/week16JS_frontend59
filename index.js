@@ -14,14 +14,14 @@ function checkValidity(input) {
 	if (validit.patternMismatch) {
 		input_form.classList.add("error");
 		input_form.innerHTML = validit.validationMessage + "ошибка";
-		document.querySelectorAll("input").style.borderColor = "red";
+		input_form.style.borderColor = "red";
 	}
 
 	if (validit.rangeOverflow) {
 		let max = input.max;
 		input_form.classList.add("error");
 		input_form.innerHTML = validit.validationMessage + max + "ошибка";
-		validit.style.border = "1px solid red";
+		input_form.style.border = "1px solid red";
 	}
 
 	if (validit.rangeUnderflow) {
