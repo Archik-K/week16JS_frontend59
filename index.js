@@ -58,6 +58,7 @@ function clearErrors() {
 }
 
 button_sending.addEventListener("click", function () {
+	checkAll()
 	clearErrors();
 	checkValidity();
 });
