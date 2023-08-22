@@ -2,6 +2,7 @@ const form_ = document.forms.formOne;
 const button_sending = document.querySelector("#sending");
 const checkboxes = document.forms.formOne.querySelector("#checkbox");
 const erorr = document.querySelector("#age_error");
+let inputs = document.querySelectorAll("input");
 let errors = [];
 
 form_.addEventListener("submit", function (event) {
@@ -40,7 +41,7 @@ function checkValidity(input) {
 
 function checkAll() {
 	//Получаем все инпуты
-	let inputs = document.querySelectorAll("input");
+
 	//Перебираем их и на каждый вызываем функцию валидации
 	for (let input of inputs) {
 		checkValidity(input);
@@ -58,7 +59,7 @@ function clearErrors() {
 }
 
 button_sending.addEventListener("click", function () {
-	checkAll()
+	checkAll();
 	clearErrors();
 	checkValidity();
 });
