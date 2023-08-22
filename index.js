@@ -2,7 +2,7 @@ const form_ = document.forms.formOne;
 const button_sending = document.querySelector("#sending");
 const checkboxes = document.forms.formOne.querySelector("#checkbox");
 const erorr = document.querySelector("#age_error");
-let inputs = document.querySelectorAll("input");
+const input_form = document.forms.formOne.querySelectorAll("input");
 let errors = [];
 
 form_.addEventListener("submit", function (event) {
@@ -10,25 +10,25 @@ form_.addEventListener("submit", function (event) {
 });
 
 function checkValidity(input) {
-	let validity = input.validity;
-	if (validity.patternMismatch) {
-		validity.classList.add("error");
-		erorr.innerHTML = validity.validationMessage + "ошибка";
-		validity.style.border = "1px solid red";
+	let validit = input.validity;
+	if (validit.patternMismatch) {
+		input_form.classList.add("error");
+		input_form.innerHTML = validit.validationMessage + "ошибка";
+		document.querySelectorAll("input").style.borderColor = "red";
 	}
 
-	if (validity.rangeOverflow) {
+	if (validit.rangeOverflow) {
 		let max = input.max;
-		validity.classList.add("error");
-		erorr.innerHTML = validity.validationMessage + max + "ошибка";
-		validity.style.border = "1px solid red";
+		input_form.classList.add("error");
+		input_form.innerHTML = validit.validationMessage + max + "ошибка";
+		validit.style.border = "1px solid red";
 	}
 
-	if (validity.rangeUnderflow) {
+	if (validit.rangeUnderflow) {
 		let min = input.min;
-		validity.classList.add("error");
-		erorr.innerHTML = validity.validationMessage + min + "ошибка";
-		validity.style.border = "1px solid red";
+		input_form.classList.add("error");
+		input_form.innerHTML = validit.validationMessage + min + "ошибка";
+		input_form.style.border = "1px solid red";
 	}
 	if (checkboxes.checked) {
 		checkboxes.classList.remove("error");
@@ -40,15 +40,14 @@ function checkValidity(input) {
 }
 
 function checkAll() {
-	inputs.forEach(function (input) {
+	input_form.forEach(function (input) {
 		checkValidity(input);
 	});
 }
 
 function clearErrors() {
 	erorr.textContent = "";
-	const inputs = document.forms.formOne.querySelectorAll("input");
-	inputs.forEach((input) => {
+	input_form.forEach((input) => {
 		input.classList.remove("error");
 		input.style.border = "none";
 	});
@@ -58,5 +57,5 @@ function clearErrors() {
 button_sending.addEventListener("click", function () {
 	checkAll();
 	clearErrors();
-	checkValidity();
+	checkValidity(input);
 });
