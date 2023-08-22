@@ -40,12 +40,9 @@ function checkValidity(input) {
 }
 
 function checkAll() {
-	//Получаем все инпуты
-
-	//Перебираем их и на каждый вызываем функцию валидации
-	for (let input of inputs) {
+	inputs.forEach(function (input) {
 		checkValidity(input);
-	}
+	});
 }
 
 function clearErrors() {
