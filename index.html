@@ -3,81 +3,104 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/index.css" />
-		<link rel="stylesheet" href="/normalixe.css" />
+		<link rel="stylesheet" href="./index.css" />
+		<link rel="stylesheet" href="./normalixe.css" />
 		<title>Практическое задание 2</title>
 	</head>
 	<body>
-		<form novalidate name="formOne">
+		<form name="formOne" id="registrationForm" novalidate>
 			<div class="container">
 				<div class="name_field">
-					<label>Введите своё имя</label>
+					<label for="name">Введите своё имя</label>
 					<input
 						type="text"
-						placeholder="Иван Иванов"
+						placeholder="Введите ваше имя"
 						required
 						minlength="2"
 						maxlength="20"
+						id="name"
+						pattern="[A-Za-zА-Яа-я\s]+"
 					/>
+					<span class="error-message"></span>
 				</div>
 				<div class="email_field">
-					<label>Введите свою эллектронную почту</label>
-					<input type="email" placeholder="arks.adress@mail.com" required />
+					<label for="email">Введите свою эллектронную почту</label>
+					<input
+						type="email"
+						placeholder="arks.adress@mail.com"
+						required
+						id="email"
+					/>
+					<span class="error-message"></span>
 				</div>
 				<div class="age_field">
-					<label>Укажите свой возраст</label>
-					<input type="text" placeholder="27 лет" required />
+					<label for="age">Укажите свой возраст</label>
+					<input type="number" placeholder="Введите ваш возраст" required />
+					<span class="error-message"></span>
 				</div>
 				<div class="gender_determination_field">
 					<label>Укажите свой пол</label>
-					<input type="radio" name="sex" value="male" id="male_radio" checked />
-					<label for="male_radio">Мужской</label>
-					<input type="radio" name="sex" value="female" id="female_radio" />
-					<label for="female_radio">Женский</label>
+					<div>
+						<input type="radio" name="sex" value="male" id="male" required />
+						<label for="male">Мужчина</label>
+						<input type="radio" name="sex" value="female" id="female" />
+						<label for="female">Женщина</label>
+					</div>
+					<span class="error-message"></span>
 				</div>
 				<div class="profession_field">
-					<label>Укажите свою профессию </label>
-					<select required placeholder="Инженер">
-						<option>Врач</option>
-						<option>Программист</option>
-						<option>Учитель</option>
-						<option>Дизайнер</option>
-						<option>Инженер</option>
-						<option>Продавец</option>
-						<option>Строитель</option>
-						<option>Повар</option>
+					<label for="profession">Укажите свою профессию </label>
+					<select id="profession" name="profession" required>
+						<option value="" disabled selected>Выберите профессию</option>
+						<option value="doctor">Врач</option>
+						<option value="programmer">Программист</option>
+						<option value="teacher">Учитель</option>
+						<option value="designer">Дизайнер</option>
+						<option value="engineer">Инженер</option>
+						<option value="seller">Продавец</option>
+						<option value="builder">Строитель</option>
+						<option value="cook">Повар</option>
+						<option value="other">Другое</option>
 					</select>
+					<span class="error-message"></span>
 				</div>
 				<div class="password_field">
+					<label for="password">Пароль:</label>
 					<input
-						class="input_password"
 						type="password"
-						placeholder="Пароль"
+						placeholder="Введите пароль"
 						required
 						minlength="8"
 						pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+						id="password"
 					/>
+					<span class="error-message"></span>
+					<label for="confirm-password">Подтвердите пароль:</label>
 					<input
 						type="password"
-						placeholder="Повторите пароль"
+						placeholder="Подтвердите пароль"
 						required
 						minlength="8"
 						pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+						id="confirm-password"
+						name="confirm-password"
 					/>
+					<span class="error-message"></span>
 				</div>
+
 				<div class="consent_field">
-					<label class="label_consent_field"
+					<label class="label_consent_field" for="consent"
 						>Даю согласие на обработку персональных данных</label
 					>
-					<input type="checkbox" required id="checkbox" />
+					<input type="checkbox" id="consent" required />
+					<span class="error-message"></span>
 				</div>
 				<div class="button_" class="stage">
 					<button type="submit" class="btn" id="sending">Отправить</button>
 				</div>
-				<span class="error-message" id="age_error"></span>
 			</div>
 		</form>
 
-		<script src="index.js"></script>
+		<script src="./index.js"></script>
 	</body>
 </html>

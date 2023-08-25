@@ -3,20 +3,19 @@ body {
 }
 
 .container {
-	width: 516px;
-	height: 776px;
+	width: 663px;
+	height: 857px;
 	display: flex;
 	background-color: rgb(0, 0, 0);
 	flex-direction: column;
 	flex-wrap: nowrap;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	color: aliceblue;
 	border: 2px solid #00ffea; /* Зеленый цвет рамки */
 	border-radius: 5px; /* Закругленные углы */
-	padding: 10px; /* Внутренний отступ */
+	padding: 7px; /* Внутренний отступ */
 	box-shadow: 0 0 5px #00ffd5; /* Зеленая тень рамки */
-
 	/* Анимация свечения */
 	animation: neon-glow 1s ease-in-out infinite alternate;
 }
@@ -38,42 +37,42 @@ form {
 
 .name_field {
 	display: flex;
-	padding: 0 0 30px 0;
+	padding: 0 0 25px 0;
 	flex-direction: column;
 	align-items: center;
 }
 
 .email_field {
 	display: flex;
-	padding: 0 0 30px 0;
+	padding: 0 0 25px 0;
 	flex-direction: column;
 	align-items: center;
 }
 
 .age_field {
 	display: flex;
-	padding: 0 0 30px 0;
+	padding: 0 0 25px 0;
 	flex-direction: column;
 	align-items: center;
 }
 
 .gender_determination_field {
 	display: flex;
-	padding: 0 0 30px 0;
+	padding: 0 0 25px 0;
 	flex-direction: column;
 	align-items: center;
 }
 
 .profession_field {
 	display: flex;
-	padding: 0 0 30px 0;
+	padding: 0 0 25px 0;
 	flex-direction: column;
 	align-items: center;
 }
 
 .password_field {
 	display: flex;
-	padding: 0 0 30px 0;
+	padding: 0 0 25px 0;
 	flex-direction: column;
 	align-items: center;
 }
@@ -81,8 +80,10 @@ form {
 .consent_field {
 	display: flex;
 	padding: 0 0 40px 0;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .button_ {
@@ -91,16 +92,11 @@ form {
 	flex-direction: column;
 	align-items: center;
 }
-.input_password {
-	margin: 0 0 15px 0;
-}
+
 label {
-	padding: 0 0 10px 0;
+	padding: 7px 0 5px 0;
 }
 
-.label_consent_field {
-	padding: 0 0 0 0;
-}
 .gender_determination_field label {
 	font-size: 1rem;
 	color: #fff;
@@ -125,13 +121,14 @@ label {
 }
 
 input {
-	padding: 6px;
+	padding: 4px;
 	border: none;
 	border-radius: 15px;
 	background-color: #222;
 	color: #b9fff9;
 	box-shadow: 0 0 5px #fff;
 	outline: none;
+	margin: 0 0 6px 0;
 }
 
 input:focus {
@@ -247,4 +244,15 @@ select::placeholder {
 	100% {
 		background-position: 0 0;
 	}
+}
+
+.error-message {
+	padding: 2px;
+	color: red;
+	font-size: 12px;
+}
+
+input.error,
+select.error {
+	border: 2px solid red;
 }
